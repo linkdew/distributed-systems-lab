@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-comments
+spec:
+  selector:
+    app: service-comments
+  type: NodePort
+  ports:
+    - name: http
+      port: 8080
+      nodePort: 31000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-comments
+spec:
+  selector:
+    matchLabels:
+      app: service-comments
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service-comments
+    spec:
+      containers:
+        - name: server
+          image: linkdew/service-comments:latest
+          ports:
+            - name: http
+              containerPort: 8080
+
+---
