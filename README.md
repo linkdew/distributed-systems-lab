@@ -5,4 +5,6 @@ three services:
 - service for posts
 - service for rating (calculation)
 
-user build.sh script to build the project
+use build.sh script to build the project
+
+h2 in-memory db used
