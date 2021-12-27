@@ -8,3 +8,4 @@ three services:
 use build.sh script to build the project
 
 h2 in-memory db used
+communication via restTemplate
